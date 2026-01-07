@@ -29,8 +29,8 @@ enum Rate{
  }
 let listProducts: Product[] = [
   { name: "Áo", price: 4, sale: true, rate: Rate.low,description: "Thấp", },
-  { name: "Quần", price: 5, sale: false, rate: Rate.medium,description: "Tầm Trung", },
-  { name: "Giày", price: 20, sale: true, rate: Rate.hight,description: "Tốt", },
+  { name: "Quần", price: 5, sale: false, rate: Rate.medium,description: "Trung Bình", },
+  { name: "Giày", price: 20, sale: true, rate: Rate.hight,description: "Cao", },
 ];
 
 listProducts.forEach(product => {
