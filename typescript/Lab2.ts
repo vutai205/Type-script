@@ -25,19 +25,22 @@ enum Rate{
     price: number, 
     sale: boolean,
     rate: Rate;
-    description: string;
- }
+ };
+
 let listProducts: Product[] = [
-  { name: "Áo", price: 4, sale: true, rate: Rate.low,description: "Thấp", },
-  { name: "Quần", price: 5, sale: false, rate: Rate.medium,description: "Trung Bình", },
-  { name: "Giày", price: 20, sale: true, rate: Rate.hight,description: "Cao", },
+  { name: "Áo", price: 4, sale: true, rate: Rate.low},
+  { name: "Quần", price: 5, sale: false, rate: Rate.medium},
+  { name: "Giày", price: 20, sale: true, rate: Rate.hight},
 ];
 
-listProducts.forEach(product => {
-  console.log(
-    `Tên: ${product.name} | Giá: ${product.price} | Sale: ${product.sale} | Đánh giá: ${product.rate} | Mô tả: ${product.description}`
-  );
-});
+function addDescription(products: Product[]): Product[] {
+  return products.map(product => ({
+    ...product,
+    description: product.price > 5 ? "Tốt" : "Bình thường",
+  }));
+}
+
+listProducts = addDescription(listProducts);
 
 const totalPrice = listProducts.reduce(
   (total, product) => total + product.price,
